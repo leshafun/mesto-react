@@ -9,7 +9,7 @@ function Card(props) {
       <img
         className="element__image"
         src={props.card.link}
-        alt=""
+        alt={props.card.name}
         onClick={handleClick}
       />
       <div className="element__container">
