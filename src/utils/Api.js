@@ -73,6 +73,10 @@ class Api {
       body: JSON.stringify({ ...data }),
     }).then(this._checkServerResponse);
   }
+
+  changeLikeCardStatus(cardId, isLiked) {
+    return isLiked ? this.deleteLike(cardId) : this.addLike(cardId);
+  }
 }
 
 export const api = new Api({
