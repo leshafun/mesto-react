@@ -64,7 +64,10 @@ function App() {
   function handleUpdateAvatar(data) {
     api
       .setUserAvatar(data)
-      .then(setCurrentUser)
+      .then((data) => {
+        setCurrentUser(data);
+        closeAllPopups();
+      })
       .catch((err) => {
         console.log(`Ошибка ${err}`);
       });
@@ -107,6 +110,7 @@ function App() {
       .createCard(data)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        closeAllPopups();
       })
       .catch((err) => {
         console.log(`Ошибка ${err}`);
@@ -115,7 +119,10 @@ function App() {
   function handleUpdateUser(data) {
     api
       .setUserInfo(data)
-      .then(setCurrentUser)
+      .then((data) => {
+        setCurrentUser(data);
+        closeAllPopups();
+      })
       .catch((err) => {
         console.log(`Ошибка ${err}`);
       });
